@@ -6,9 +6,6 @@ OpenTerminal(path, admin, linux)
     if (InStr(path, '::') == 1) { ; Some paths are invalid
         path := false
     }
-    if (!path && admin) {
-        path := '%USERPROFILE%' ; Default to user's home directory
-    }
     ; The following line of code requires a profile to be set up in Windows Terminal
     ; the profile name has to be 'Powershell (Elevated)'
     ; Windows 11 22H2 has broken this functionality
