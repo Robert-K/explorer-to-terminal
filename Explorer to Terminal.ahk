@@ -8,10 +8,10 @@ OpenTerminal(path, admin, linux)
     }
     ; The following line of code requires a profile to be set up in Windows Terminal
     ; the profile name has to be 'Powershell (Elevated)'
-    ; Windows 11 22H2 has broken this functionality
-    ; cmd := 'wt.exe ' (admin ? 'new-tab -p "PowerShell (Elevated)" ' : (linux ? 'new-tab -p "Ubuntu" ' : '')) (path ? '-d "' path '"' : '')
-    ; use this instead for now:
-    cmd := (admin ? '*runas ' : '') 'wt.exe ' (linux ? 'new-tab -p "Ubuntu" ' : '') (path ? '-d "' path '"' : '') ; Replace 'Ubuntu' with your preferred profile
+    ; Windows 11 22H2 has broken this functionality (WORKS AGAIN ON 22621.1555!!!)
+    cmd := 'wt.exe ' (admin ? 'new-tab -p "PowerShell (Elevated)" ' : (linux ? 'new-tab -p "Ubuntu" ' : '')) (path ? '-d "' path '"' : '')
+    ; use this instead for now (BROKEN AGAIN):
+    ; cmd := (admin ? '*runas ' : '') 'wt.exe ' (linux ? 'new-tab -p "Ubuntu" ' : '') (path ? '-d "' path '"' : '') ; Replace 'Ubuntu' with your preferred profile
     OutputDebug(cmd)
     Run(cmd, , , &pid)
     if (WinWait('ahk_exe WindowsTerminal.exe', , 2)) {
